@@ -1,4 +1,3 @@
-
 package engsoft;
 
 public class Main 
@@ -6,7 +5,7 @@ public class Main
     public static void main(String[] args) 
     {
 //        Expressão a ser calculada
-        String expressao = "(funcI(z) * funcI(w)) + (i + x + y)";
+        String expressao = "(getValueFor(z,i) * getValueFor(w,i)) + (i + x + y)";
 //        Valor máximo do somatório, que vai de número (i) até o máximo
         int maximo = 5;
 //        Valor número(i) do somatório, que se alterará de um em um até o máximo
@@ -54,7 +53,9 @@ public class Main
         
 //        ____________________
 
-        String expressao1 = "(x * i) * funcI(z)";
+        System.out.println("\n\n\n");
+        
+        String expressao1 = "(x * i) * getValueFor(z,i)";
         int maximo1 = 10;
         int numero1 = 1;
         Expressao model1 = new Expressao(expressao1, maximo1, numero1);

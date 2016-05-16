@@ -1,4 +1,3 @@
-
 package engsoft;
 
 import java.util.regex.Matcher;
@@ -10,7 +9,7 @@ public class Somatorio
 {
     private Expressao expressao;
     
-    static final String REGEX_FUNC = "funcI\\((\\w)\\)";
+    static final String REGEX_FUNC = "getValueFor\\((\\w,\\w)\\)";
     
     public double calculaExpressao() 
     {
@@ -69,11 +68,14 @@ public class Somatorio
         while (matcher.find()) 
         {
             String identificador = matcher.group(1);
+            String firstParam = identificador.substring(0, 1);
+            String secondParam = identificador.substring(2, 3);
+            
             for (Atributo atributo : this.expressao.getDados().getAtributo())
             {
-                if(atributo.getIdentificador().equals(identificador))
+                if(atributo.getIdentificador().equals(firstParam))
                 {
-                    expressaoTratada = expressaoTratada.replace("funcI(" + identificador + ")", atributo.getValores().get(i).toString());
+                    expressaoTratada = expressaoTratada.replace("getValueFor(" + firstParam + "," + secondParam + ")", atributo.getValores().get(i).toString());
                 }
             }
             
